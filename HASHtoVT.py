@@ -33,7 +33,7 @@ maxfiles = len(files)
 num=0
 
 while 1:
-        time.sleep(9)
+        time.sleep(5)
         f = open(files[num], 'rb')
         data = hashlib.sha256()
         while 1:
@@ -53,7 +53,7 @@ while 1:
         url = 'https://www.virustotal.com/#/file/'+data.hexdigest()
 
         driver.get(url)
-        time.sleep(9)
+        time.sleep(5)
 
         if "McAfee" in driver.page_source.encode('utf-8','replace') or "AhnLab-V3" in driver.page_source.encode('utf-8','replace') or "Malwarebytes" in driver.page_source.encode('utf-8','replace'):
                 print("[Detection]")
@@ -111,7 +111,7 @@ while 1:
         driver.close()
         num+=1
         f.close()
-        time.sleep(9)
+        time.sleep(10)
 
         if num is maxfiles: break
 
